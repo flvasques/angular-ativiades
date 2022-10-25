@@ -34,7 +34,7 @@ jobs:
      - run: mkdir -p dist/angular-social/
      - run: git status
      - run: git fetch
-     - run: git subtree pull --prefix dist/angular-social/ origin prod --allow-unrelated-histories
+     - run: git subtree pull --prefix dist/angular-social/ origin prod
      - run: ng build --configuration=production
      - run: git add dist -f
      - run: git commit -m 'Deploy'
