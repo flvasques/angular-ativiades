@@ -32,6 +32,7 @@ jobs:
      - run: git config --global user.name 'flvasques'
      - run: git config --global user.email 'fflqvn@gmail.com'
      - run: mkdir -p dist/angular-social/
+     - run: git status
      - run: git subtree pull --prefix dist/angular-social/ origin prod
      - run: ng build --configuration=production
      - run: git add dist -f
