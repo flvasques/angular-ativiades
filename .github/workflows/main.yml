@@ -34,7 +34,7 @@ jobs:
      - run: git config --global user.email 'fflqvn@gmail.com'
      - run: git add dist -f
      - run: git commit -m 'Deploy'
-     - run: git subtree push --force --prefix dist/angular-social/ origin prod
+     - run: git push origin (git subtree push --force --prefix dist/angular-social/ origin prod):gh-pages --force
      
        
      
