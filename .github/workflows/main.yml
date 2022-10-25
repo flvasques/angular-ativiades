@@ -30,7 +30,7 @@ jobs:
      - run: npm install
      - run: npm install -g @angular/cli
      - run: ng build
-     - run: git subtree pull --prefix dist/angular-social/
+     - run: git subtree pull --prefix dist/angular-social/ origin prod
      - run: git config --global user.name 'flvasques'
      - run: git config --global user.email 'fflqvn@gmail.com'
      - run: ng build --configuration=production
