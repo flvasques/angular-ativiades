@@ -14,12 +14,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-     - uses: actions/checkout@v1
+     - uses: actions/checkout@v2
      - uses: actions/setup-node@v1 #this installs node and npm for us
        with:
           node-version: "16.x"
+          token: ${{secrets.TOKEN}}
           
-     - uses: actions/cache@v1
+     - uses: actions/cache@v2
        with:
           path: ~/.npm
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
@@ -29,5 +30,10 @@ jobs:
      - run: npm install
      - run: npm install -g @angular/cli
      - run: ng build --configuration=production
+     - run: git add dist -f
+     - run: git commit -m 'Deploy'
+     - run: git subtree push --prefix dist/angular-social/ origin prod
+     
+       
      
           
