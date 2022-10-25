@@ -29,10 +29,10 @@ jobs:
      - run: npm cache clean --force
      - run: npm install
      - run: npm install -g @angular/cli
-     - run: git add .
-     - run: git commit -m 'to clean'
      - run: git config --global user.name 'flvasques'
      - run: git config --global user.email 'fflqvn@gmail.com'
+     - run: git add .
+     - run: git commit -m 'to clean'
      - run: git subtree add --prefix dist/angular-social/ origin prod
      - run: ng build --configuration=production
      - run: git add dist -f
