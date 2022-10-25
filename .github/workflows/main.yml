@@ -14,7 +14,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-     - uses: actions/checkout@v2
      - uses: actions/checkout@v1
      - uses: actions/setup-node@v1 #this installs node and npm for us
        with:
@@ -29,6 +28,6 @@ jobs:
      - run: npm cache clean --force
      - run: npm install
      - run: npm install -g @angular/cli
-     - run: ng build --prod
+     - run: ng build --configuration=production
      
           
