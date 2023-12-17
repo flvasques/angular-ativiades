@@ -5,11 +5,16 @@ import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'inicio',
     component: HomeComponent,
   },
 
-  //Wild Card Route for 404 request
+  {
+    path: '',
+    redirectTo: '/inicio',
+    pathMatch: 'full'
+  },
+
   {
     path: '**',
     pathMatch: 'full',
