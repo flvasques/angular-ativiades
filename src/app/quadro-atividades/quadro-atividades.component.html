@@ -1,0 +1,95 @@
+<div class="container-fluid page-body">
+  <h1>Planilha Diaria</h1>
+  <hr />
+  <div class="card">
+    <h2>Atividades</h2>
+    <table class="table table-striped table-hover">
+      <thead class="">
+        <th>Atividade</th>
+        <th>Horario de Inicio</th>
+        <th>Horario Final / Tempo Total</th>
+        <th> Ações </th>
+      </thead>
+      <tbody>
+        @for (atividade of atividades; track atividade.id; let idx = $index) {
+          <tr class="align-middle">
+            <td>{{atividade.nome}}</td>
+            <td>{{atividade.inicio?.toLocaleDateString()}} - {{atividade.inicio?.toLocaleTimeString()}}</td>
+            <td>
+              @if(statusFinalizada(atividade.status)) {
+                {{atividade.fim?.toLocaleDateString()}} - {{atividade.fim?.toLocaleTimeString()}} -
+              }
+              {{formatarTempo(atividade.tempo)}}
+            </td>
+            <td>
+              @if (statusAndamento(atividade.status)) {
+                <button type="button"
+                  class="btn btn-warning"
+                  title="Pausar"
+                  (click)="pausar(idx)">
+                  <span class="material-icons">pause_circle</span>
+                </button>
+                &nbsp;
+              }
+              @if (statusPausa(atividade.status)) {
+                <button type="button"
+                  class="btn btn-success"
+                  title="Iniciar"
+                  (click)="iniciar(idx, atividade.id)">
+                  <span class="material-icons">play_circle</span>
+                </button>
+                &nbsp;
+              }
+              @if (!statusFinalizada(atividade.status)) {
+                &nbsp;
+                <button type="button"
+                  class="btn btn-warning"
+                  title="Encerrar"
+                  (click)="encerrar(idx)">
+                  <span class="material-icons">stop_circle</span>
+                </button>
+                &nbsp;
+              }
+              &nbsp;
+              <button type="button"
+                class="btn btn-danger"
+                title="Encerrar"
+                (click)="apagar(idx)">
+                <span class="material-icons">delete_forever</span>
+              </button>
+            </td>
+          </tr>
+        } @empty {
+          <tr class="align-middle">
+            <td colspan="4">
+              <p class="text-center">Sem Atividades no momento!</p>
+            </td>
+          </tr>
+        }
+      </tbody>
+      <tfoot>
+        <tr>
+          <td>
+            <div class="form-group">
+              <input type="text"
+                class="form-control needs-validation"
+                id="tituloAtividade"
+                aria-describedby="titulo Atividade"
+                placeholder="Nome"
+                [(ngModel)]="nomeAtividade">
+            </div>
+          </td>
+          <td colspan="2"></td>
+          <td>
+            <button class="btn btn-success btn-sm"
+              title="Nova Atividade"
+              (click)="addAtividade()">
+                <span class="material-icons">add</span>
+            </button>
+          </td>
+        </tr>
+      </tfoot>
+    </table>
+
+  </div>
+</div>

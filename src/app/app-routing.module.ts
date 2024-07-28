@@ -2,6 +2,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
+import { QuadroAtividadesComponent } from './quadro-atividades/quadro-atividades.component';
 
 const routes: Routes = [
   {
@@ -13,6 +14,12 @@ const routes: Routes = [
     path: '',
     redirectTo: '/inicio',
     pathMatch: 'full'
+  },
+
+  {
+    path: 'atividades',
+    pathMatch: 'full',
+    component: QuadroAtividadesComponent
   },
 
   {

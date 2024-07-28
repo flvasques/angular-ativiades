@@ -42,3 +42,22 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .page-body {
   min-height: 80%;
 }
+h1, h2 {
+  font-family: Sofia;
+	color: #4169E1;
+	text-align: center;
+}
+
+h1 {
+	font-size: 32px;
+  text-shadow: 2px 2px #8f95af;
+	margin-bottom: 20px;
+}
+
+h2 {
+	font-size: 20px;
+}
+
+.btn-warning {
+  color: #FFFFFF;
+}
